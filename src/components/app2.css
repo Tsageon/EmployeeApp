@@ -1,0 +1,180 @@
+.App {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+a{
+  text-decoration: none;
+}
+
+h1 {
+  margin: 10;
+  font-size: 2em;
+  color: #333;
+  text-align: center;
+}
+
+.Two-headings, .Query-heading {
+  color: black;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+body {
+  background-color: #f5f5f5;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+input, select {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  margin: 0 0;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+.styled-select {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 1em;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+h2 {
+  margin-top: 20px;
+  text-align: center;
+  color: #333;
+}
+
+div {
+  margin-bottom: 20px;
+}
+
+.table-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px auto;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+}
+
+td {
+  padding: 12px;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+button {
+  padding: 5px 10px;  
+  border-radius: 5px; 
+  font-size: 0.9em; 
+  border: 1px solid #007bff;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #B59410;
+  border-color: #0056b3;
+}
+
+ .edit,.delete {
+  padding: auto auto; 
+  margin-bottom: 8px;
+  justify-content: center;
+  display: flex;
+  width: 50px;
+  border-radius: 5px; 
+  font-size: 0.7em; 
+}
+.search{
+  display: flex;
+  margin-top: 10px;
+}
+
+.Refresh {
+  margin: 5px;
+  padding: 0px 0px; 
+  border-radius: 100px;
+  font-size: 0.7em;
+}
+
+table caption {
+  margin: 10px;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.table-container h2 {
+  margin: 20px 0;
+  font-size: 1.5em;
+  color: #333;
+  text-align: center;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.employee-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.tabs button {
+  background-color: dodgerblue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0 15px;
+}
+
+.tabs button.active-tab {
+  background-color: blue;
+}
+.error {
+  color: #ff4d4d;
+  font-size: 0.9em;
+  margin-top: 5px;}
