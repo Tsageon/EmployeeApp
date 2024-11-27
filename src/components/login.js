@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';  
 import './Login.css';
 
 function Login() {
@@ -19,6 +20,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (!validate()) return;
 
     const users = JSON.parse(localStorage.getItem('Users')) || [];
@@ -26,11 +28,27 @@ function Login() {
 
     if (foundUser) {
       setLoginStatus('Login successful!');
-      navigate('/app2');
+
+      Swal.fire({
+        title: 'Login Successful!',
+        text: 'Welcome back to your account.',
+        icon: 'success',
+        confirmButtonText: 'Proceed'
+      }).then(() => {
+        navigate('/app2'); 
+      });
     } else {
       setLoginStatus('Invalid email or password.');
+      
+      Swal.fire({
+        title: 'Login Failed',
+        text: 'Invalid email or password.',
+        icon: 'error',
+        confirmButtonText: 'Try Again'
+      });
     }
   };
+
   return (
     <div className="login-form">
       <h2>Login</h2>

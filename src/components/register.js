@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import './Register.css';
 
 function Register() {
@@ -26,10 +27,22 @@ function Register() {
 
     if (existingUser) {
       setRegisterStatus('Email already registered.');
+      Swal.fire({
+        title: 'No!',
+        text: 'Credentials already in Use!',
+        icon: 'error',
+        confirmButtonText: 'Proceed'
+      })
     } else {
       users.push(user);
       localStorage.setItem('Users', JSON.stringify(users));
       setRegisterStatus('Registration successful! You can now log in.');
+      Swal.fire({
+        title:'Registered successfully',
+        text: 'Great! Click the button',
+        icon: 'success',
+        confirmButtonText:'Okay!'
+      })
       navigate('/login'); 
     }
   };

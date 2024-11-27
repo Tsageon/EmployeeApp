@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import Swal from 'sweetalert2';
 import './app2.css';
 
 function Form() {
@@ -33,8 +34,24 @@ function Form() {
   };
 
   const deleteEmployee = (id) => {
-    const updatedEmployees = employees.filter(employee => employee.id !== id);
-    setEmployees(updatedEmployees);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to undo this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'Cancel'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const updatedEmployees = employees.filter(employee => employee.id !== id);
+        setEmployees(updatedEmployees);
+        Swal.fire(
+          'Deleted!',
+          'The employee has been deleted.',
+          'success'
+        );
+      }
+    });
   };
 
   const editEmployee = (employee) => {
@@ -72,6 +89,12 @@ function Form() {
       }
       return updatedEmployees;
     });
+    Swal.fire({
+      title: isEditing ? 'Employee Updated!' : 'New Employee Added!',
+      text: isEditing ? 'The employee details were updated successfully.' : 'The new employee has been added.',
+      icon: 'success',
+      confirmButtonText: 'OK'
+    });  
 
     resetForm();
   };
@@ -162,7 +185,7 @@ function Form() {
                   {employee.image ? (
                     <img src={employee.image} alt={employee.name} className="employee-image" />
                   ) : (
-                    'No image'
+                    <img src='https://st4.depositphotos.com/17418852/23170/v/1600/depositphotos_231708598-stock-illustration-oops-sorry-don-know-young.jpg'  className="employee-image"  alt='Nothing' />
                   )}
                 </td>
                 <td>{employee.name}</td>
