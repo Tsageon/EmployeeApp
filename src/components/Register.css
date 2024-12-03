@@ -39,7 +39,7 @@ body {
 .register-form input[type="text"]:focus,
 .register-form input[type="password"]:focus,
 .register-form input[type="email"]:focus {
-  border-color: #007BFF;
+  border-color: #4000ff;
 }
 
 .register-form .error {
@@ -52,7 +52,7 @@ body {
 .register-form button {
   width: 100%;
   padding: 10px;
-  background-color: #007BFF;
+  background-color: #22ff00;
   color: white;
   border: none;
   border-radius: 5px;
@@ -75,7 +75,7 @@ body {
 }
 
 .link:hover {
-  color: darkblue;
+  color: violet;
 }
 
 .link:visited {
