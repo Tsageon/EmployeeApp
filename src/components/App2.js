@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import './app2.css';
 
@@ -12,6 +13,8 @@ function Form() {
   const [errors, setErrors] = useState({});
   const [activeTab, setActiveTab] = useState('form');
   const searchTimeoutRef = useRef(null);
+  const navigate = useNavigate();
+  
 
   const validate = () => {
     let tempErrors = {};
@@ -78,7 +81,7 @@ function Form() {
 
       if (isEditing) {
         updatedEmployees = prevEmployees.map(emp =>
-          emp.id === currentEmployeeId ? { ...employeeData, id: currentEmployeeId } : emp
+          emp.id === currentEmployeeId ? {...employeeData, id: currentEmployeeId } : emp
         );
       } else {
         const newEmployeeWithId = {
@@ -119,6 +122,23 @@ function Form() {
       handleSearch();
     }, 300);
   };
+
+
+  const Logout = () =>{
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You will be logged out of your account.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, Log Out',
+      cancelButtonText: 'Cancel',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        navigate('/login');
+        Swal.fire('Logged Out!', 'You have been successfully logged out.', 'success');
+      }
+    });
+  }
 
   const renderForm = () => (
     <>
@@ -202,7 +222,7 @@ function Form() {
             ))
           ) : (
             <tr>
-              <td colSpan="8">No employees yet</td>
+              <td colSpan="8"><b><i>No employees yet</i></b></td>
             </tr>
           )}
         </tbody>
@@ -224,6 +244,7 @@ function Form() {
         <button onClick={() => setActiveTab('form')} className={activeTab === 'form' ? 'active-tab' : ''}>Employee Form</button>
         <button onClick={() => setActiveTab('list')} className={activeTab === 'list' ? 'active-tab' : ''}>Employee List</button>
         <button onClick={() => setActiveTab('search')} className={activeTab === 'search' ? 'active-tab' : ''}>Search</button>
+        <button onClick={Logout} className={activeTab === 'logout' ? 'active-tab': ''}>Logout</button>
       </div>
       {activeTab === 'form' && (
         <div>
